@@ -16,25 +16,30 @@ public class LoginGeneratorTest extends TestCase {
 
     public void testGenerateLoginForNomAndPrenom() {
         String newLogin = loginGenerator.generateLoginForNomAndPrenom("Durand","Paul");
-        assertEquals(newLogin,"PDUR");
+        assertEquals("PDUR",newLogin);
         assertTrue(loginService.loginExists("PDUR"));
     }
 
     public void testCT2() {
         String newLogin = loginGenerator.generateLoginForNomAndPrenom("Ralling","John");
-        assertEquals(newLogin,"JRAL2");
+        assertEquals("JRAL2",newLogin);
         assertTrue(loginService.loginExists("JRAL2"));
     }
 
     public void testCT3() {
         String newLogin = loginGenerator.generateLoginForNomAndPrenom("Rolling","Jean");
-        assertEquals(newLogin,"JROL1");
+        assertEquals("JROL1",newLogin);
         assertTrue(loginService.loginExists("JROL1"));
     }
 
     public void testCT4(){
         String newLogin = loginGenerator.generateLoginForNomAndPrenom("Dùrand","Paul");
-        assertEquals(newLogin,"PDUR");
+        assertEquals("PDUR",newLogin);
         assertTrue(loginService.loginExists("PDUR"));
+    }
+
+    public void testCTShortName(){
+        String newLogin = loginGenerator.generateLoginForNomAndPrenom("Du","Paul");
+        assertEquals("PDU",newLogin);
     }
 }
